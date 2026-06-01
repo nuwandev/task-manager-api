@@ -83,7 +83,11 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void deleteTask(UUID id) {
-
+        Task task = taskRepository.getById(id);
+        if (task == null) {
+            throw new TaskNotFoundException();
+        }
+        taskRepository.delete(id);
     }
 
     @Override

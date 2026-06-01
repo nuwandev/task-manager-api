@@ -10,4 +10,6 @@ public interface TaskRepository {
     Task getById(UUID id);
 
     void update(Task task);
+
+    void delete(UUID id);
 }
