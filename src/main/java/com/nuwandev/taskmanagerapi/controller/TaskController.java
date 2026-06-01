@@ -9,6 +9,7 @@ import com.nuwandev.taskmanagerapi.dto.response.TaskResponse;
 import com.nuwandev.taskmanagerapi.enums.Priority;
 import com.nuwandev.taskmanagerapi.enums.Status;
 import com.nuwandev.taskmanagerapi.service.TaskService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -24,7 +25,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public ApiResponse<TaskIdResponse> createTask(@RequestBody CreateTaskRequest request) {
+    public ApiResponse<TaskIdResponse> createTask(@RequestBody @Valid CreateTaskRequest request) {
         UUID taskId = taskService.createTask(request);
         return new ApiResponse<>(true, null, new TaskIdResponse(taskId.toString()));
     }
@@ -35,7 +36,7 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public ApiResponse<TaskResponse> updateTask(@PathVariable UUID id, @RequestBody UpdateTaskRequest request) {
+    public ApiResponse<TaskResponse> updateTask(@PathVariable UUID id, @RequestBody @Valid UpdateTaskRequest request) {
         return new ApiResponse<>(true, null, taskService.updateTask(id, request));
     }
 
