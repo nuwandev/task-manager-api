@@ -3,7 +3,7 @@ package com.nuwandev.taskmanagerapi.entity;
 import com.nuwandev.taskmanagerapi.enums.Priority;
 import com.nuwandev.taskmanagerapi.enums.Status;
 
-import java.sql.Timestamp;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 public class Task {
@@ -12,13 +12,14 @@ public class Task {
     private String description;
     private Status status;
     private Priority priority;
-    private Timestamp dueDate;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private OffsetDateTime dueDate;
+    private OffsetDateTime createdAt;
+    private OffsetDateTime updatedAt;
 
-    public Task() {}
+    public Task() {
+    }
 
-    public Task(UUID id, String title, String description, Status status, Priority priority, Timestamp dueDate, Timestamp createdAt, Timestamp updatedAt) {
+    public Task(UUID id, String title, String description, Status status, Priority priority, OffsetDateTime dueDate, OffsetDateTime createdAt, OffsetDateTime updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -49,15 +50,15 @@ public class Task {
         return priority;
     }
 
-    public Timestamp getDueDate() {
+    public OffsetDateTime getDueDate() {
         return dueDate;
     }
 
-    public Timestamp getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public Timestamp getUpdatedAt() {
+    public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
@@ -81,15 +82,15 @@ public class Task {
         this.priority = priority;
     }
 
-    public void setDueDate(Timestamp dueDate) {
+    public void setDueDate(OffsetDateTime dueDate) {
         this.dueDate = dueDate;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }
