@@ -92,6 +92,14 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskPageResponse listTasks(int page, int size, String search, Status status, Priority priority, String sort) {
+        int safePage = Math.max(page, 0);
+        int safeSize = size > 0 ? size : 10;
+        String safeSearch = search == null ? null : search.trim();
+        if (safeSearch != null && safeSearch.isBlank()) {
+            safeSearch = null;
+        }
+        String safeSort = (sort == null || sort.isBlank()) ? "createdAt,desc" : sort.trim();
 
+        return taskRepository.listTasks(safePage, safeSize, safeSearch, status, priority, safeSort);
     }
 }
