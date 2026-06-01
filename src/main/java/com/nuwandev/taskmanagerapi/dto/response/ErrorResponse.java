@@ -4,9 +4,10 @@ public record ErrorResponse(
         boolean success,
         String message,
         Error[] errors) {
+
+    public record Error(
+            String field,
+            String message) {
+    }
 }
 
-record Error(
-        String field,
-        String message) {
-}
