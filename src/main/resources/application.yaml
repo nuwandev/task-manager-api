@@ -4,3 +4,5 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: tsk_mgr_usr
     password: tsk_mgr_pass_123
+  flyway:
+    locations: classpath:db/migrations
