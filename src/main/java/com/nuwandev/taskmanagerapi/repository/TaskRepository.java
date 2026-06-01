@@ -6,4 +6,6 @@ import java.util.UUID;
 
 public interface TaskRepository {
     UUID save(Task task);
+
+    Task getById(UUID id);
 }
