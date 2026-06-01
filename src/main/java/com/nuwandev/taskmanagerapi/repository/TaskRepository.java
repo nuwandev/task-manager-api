@@ -8,4 +8,6 @@ public interface TaskRepository {
     UUID save(Task task);
 
     Task getById(UUID id);
+
+    void update(Task task);
 }
